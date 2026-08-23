@@ -1,0 +1,41 @@
+{
+  "name": "free-image-library",
+  "version": "0.1.0",
+  "description": "Free images for AI agents: openly-licensed CC images & audio with attribution via NPX",
+  "main": "bin/index.js",
+  "bin": {
+    "free-image-library": "bin/index.js",
+    "free-image-library-server": "bin/index.js"
+  },
+  "mcpName": "io.github.surendranb/free-image-library",
+  "scripts": {
+    "test": "node bin/index.js --help"
+  },
+  "keywords": [
+    "mcp",
+    "mcp-server",
+    "images",
+    "photos",
+    "creative-commons",
+    "openverse",
+    "royalty-free",
+    "attribution",
+    "ai-agent",
+    "anthropic",
+    "claude",
+    "claude-code"
+  ],
+  "author": "Surendran B <reachsuren@gmail.com>",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/surendranb/free-image-library.git"
+  },
+  "bugs": {
+    "url": "https://github.com/surendranb/free-image-library/issues"
+  },
+  "homepage": "https://free-image-library.builditwithai.xyz",
+  "engines": {
+    "node": ">=16.0.0"
+  }
+}

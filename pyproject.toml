@@ -1,0 +1,50 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "free-image-library"
+version = "0.1.0"
+description = "Free images for AI agents: search millions of openly-licensed, royalty-free Creative Commons images and audio (Flickr, Wikimedia, museums) — every result with ready-to-paste attribution. Zero API keys."
+readme = "README.md"
+license = "MIT"
+authors = [
+  {name = "Surendran B", email = "reachsuren@gmail.com"}
+]
+requires-python = ">=3.10"
+dependencies = [
+  "mcp>=2.0.0,<3",
+  "requests>=2.31.0",
+]
+keywords = ["free-images", "free-image-library", "royalty-free-images", "creative-commons-images", "stock-images", "openverse", "image-search", "mcp", "mcp-server", "model-context-protocol", "ai-agent", "claude", "llm", "agentic-workflows"]
+classifiers = [
+  "Development Status :: 4 - Beta",
+  "Intended Audience :: Developers",
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3.10",
+  "Programming Language :: Python :: 3.11",
+  "Programming Language :: Python :: 3.12",
+  "Programming Language :: Python :: 3.13",
+]
+
+[project.urls]
+Homepage = "https://free-image-library.builditwithai.xyz"
+Repository = "https://github.com/surendranb/free-image-library"
+Issues = "https://github.com/surendranb/free-image-library/issues"
+
+[project.scripts]
+free-image-library = "free_image_library.server:main"
+free-image-library-server = "free_image_library.server:main"
+
+[project.optional-dependencies]
+dev = ["pytest", "pytest-asyncio"]
+
+[tool.setuptools]
+packages = ["free_image_library"]
+
+[tool.pytest.ini_options]
+asyncio_mode = "auto"
+markers = [
+  "e2e: end-to-end user-flow tests (server subprocess, install-as-user, telemetry capture)",
+  "live: tests that hit live third-party APIs (skipped on network failure)",
+]

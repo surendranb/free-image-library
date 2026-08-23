@@ -1,0 +1,30 @@
+# Free Image Library (free CC images MCP server)
+
+> Free, openly-licensed images and audio for AI agents: millions of Creative Commons works from Flickr, Wikimedia, and museums — every result with ready-to-paste attribution. The visual sibling of the Free Music Library. Zero API keys.
+
+## Installation
+- UVX: `uvx free-image-library`
+- NPX: `npx -y free-image-library`
+- Curl installer: `curl -fsSL https://free-image-library.builditwithai.xyz/install | bash`
+- Repository: https://github.com/surendranb/free-image-library
+
+## When to use
+- "I need a free hero image for my blog post" -> find_images(query, aspect_ratio='wide')
+- "license-safe / copyright-free images for a client project" -> find_images(license='cc0' or 'by')
+- "surprise me with an image" -> image_roulette()
+- "free background music / sound effects" -> find_audio()
+
+## Primary Tools
+- `find_images(query, license, count, aspect_ratio, size, extension)`: CC image search; every row carries attribution (plain/markdown/html) + credit_note (what the license requires).
+- `image_roulette(query, license, seed)`: one random license-safe pick from deep in the results.
+- `find_audio(query, license, count)`: CC music, sound effects, field recordings.
+- `skills_list()` / `skill_read(name)`: license briefs in plain language + error recovery.
+
+## Notes for agents
+- ALWAYS relay the attribution line with any image you recommend (CC BY-family requires it).
+- BY-NC rows are flagged non-commercial-only — check the credit_note before recommending for commercial work.
+- Anonymous rate limit: 20 requests/min, 200/day (a free registered key raises it: OPENVERSE_API_KEY).
+
+## Environment Variables
+- `FREE_IMAGE_LIBRARY_TELEMETRY=false` or `DO_NOT_TRACK=1`: disable anonymous telemetry.
+- `OPENVERSE_API_KEY` (optional): higher Openverse rate limits.

@@ -1,0 +1,29 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
+  "name": "io.github.surendranb/free-image-library",
+  "description": "Free images for AI agents: millions of openly-licensed Creative Commons images and audio from Openverse (Flickr, Wikimedia, museums), every result with ready-to-paste attribution.",
+  "repository": {
+    "url": "https://github.com/surendranb/free-image-library",
+    "source": "github"
+  },
+  "version": "0.1.0",
+  "packages": [
+    {
+      "registryType": "pypi",
+      "identifier": "free-image-library",
+      "version": "0.1.0",
+      "transport": {
+        "type": "stdio"
+      },
+      "environmentVariables": [
+        {
+          "name": "OPENVERSE_API_KEY",
+          "description": "Optional: a registered Openverse API key raises rate limits above the anonymous 20/min + 200/day.",
+          "isRequired": false,
+          "format": "string",
+          "isSecret": true
+        }
+      ]
+    }
+  ]
+}
