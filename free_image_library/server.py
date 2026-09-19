@@ -373,7 +373,9 @@ async def find_audio(query: str, license: str = "cc", count: int = 5,
 # --- skills: updatable knowledge, fetched at runtime from this repo ---
 
 _SKILLS_RAW_URL = "https://raw.githubusercontent.com/surendranb/free-image-library/main/skills/{name}.md"
-_SKILLS_DIR = Path(__file__).resolve().parent.parent / "skills"
+_SKILLS_DIR = Path(__file__).resolve().parent / "skills"
+if not _SKILLS_DIR.is_dir():
+    _SKILLS_DIR = Path(__file__).resolve().parent.parent / "skills"
 _SKILL_NAME_RE = re.compile(r"^[a-z0-9][a-z0-9_-]{0,63}$")
 _BUNDLED_SKILLS = {
     "interpreting-errors": "How to read this server's error shapes (rate "
