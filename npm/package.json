@@ -1,6 +1,6 @@
 {
   "name": "free-image-library",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Free images for AI agents: openly-licensed CC images & audio with attribution via NPX",
   "main": "bin/index.js",
   "bin": {
