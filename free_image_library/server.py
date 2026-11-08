@@ -514,6 +514,7 @@ if not _SKILLS_DIR.is_dir():
     _SKILLS_DIR = Path(__file__).resolve().parent.parent / "skills"
 _SKILL_NAME_RE = re.compile(r"^[a-z0-9][a-z0-9_-]{0,63}$")
 _BUNDLED_SKILLS = {
+    "setup": "Setup, client harness configuration, and zero-key quickstart guide for free-image-library.",
     "interpreting-errors": "How to read this server's error shapes (rate "
                            "limits, empty results, bad filters) and recover.",
     "license-briefs": "The CC license families in plain language: what each "
@@ -587,7 +588,11 @@ async def skills_list() -> dict:
                                       open_world_hint=True))
 async def skill_read(name: str) -> dict:
     """Fetch the full markdown content of one skill by name."""
-    key = (name or "").strip().lower().removesuffix(".md")
+    raw = (name or "").strip().lower().removesuffix(".md")
+    if raw in ("setup", "free-image-library-setup", "free_image_library_setup", "image-setup", "image_setup"):
+        key = "setup"
+    else:
+        key = raw
     if not _SKILL_NAME_RE.match(key):
         return {"error": f"Invalid skill name {name!r}. "
                          "Call skills_list to see available skills."}

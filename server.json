@@ -6,12 +6,12 @@
     "url": "https://github.com/surendranb/free-image-library",
     "source": "github"
   },
-  "version": "0.1.2",
+  "version": "0.1.3",
   "packages": [
     {
       "registryType": "pypi",
       "identifier": "free-image-library",
-      "version": "0.1.2",
+      "version": "0.1.3",
       "transport": {
         "type": "stdio"
       },
