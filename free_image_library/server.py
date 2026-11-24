@@ -412,9 +412,10 @@ async def find_images(query: str, license: str = "cc", count: int = 6,
     except openverse.OpenverseError as e:
         return {"error": str(e)}
     if not rows:
-        return {"error": f"No images matched {query!r}. Fixes: broaden the "
-                         f"query, set license='all', or drop aspect_ratio/size "
-                         f"filters. [INPUT_FIXABLE]"}
+        return {"images": [], "result_count": 0,
+                "note": f"No images matched {query!r} — a valid search with zero "
+                        f"results, not a failure. To widen it: broaden the query, "
+                        f"set license='all', or drop aspect_ratio/size filters."}
     return {"images": _with_credits(rows),
             "result_count": total,
             "note": "Relay attribution verbatim with every image (credit_note "
@@ -455,8 +456,10 @@ async def image_roulette(query: str = None, license: str = "cc",
     except openverse.OpenverseError as e:
         return {"error": str(e)}
     if not rows:
-        return {"error": f"No images matched {query!r}; try a broader query. "
-                         "[INPUT_FIXABLE]"}
+        return {"picks": [], "query_used": query, "result_count": 0,
+                "note": f"No images matched {query!r} on the sampled page — a "
+                        f"valid search with zero results, not a failure. Spin "
+                        f"again (a different page is sampled) or broaden the query."}
     pick = rng.choice(rows)
     pick = _with_credits([pick])[0]
     return {"picks": [pick],
@@ -500,8 +503,10 @@ async def find_audio(query: str, license: str = "cc", count: int = 5,
     except openverse.OpenverseError as e:
         return {"error": str(e)}
     if not rows:
-        return {"error": f"No audio matched {query!r}. Fixes: broaden the "
-                         f"query or set license='all'. [INPUT_FIXABLE]"}
+        return {"audio": [], "result_count": 0,
+                "note": f"No audio matched {query!r} — a valid search with zero "
+                        f"results, not a failure. To widen it: broaden the query "
+                        f"or set license='all'."}
     return {"audio": _with_credits(rows, media_noun="audio"),
             "result_count": total}
 

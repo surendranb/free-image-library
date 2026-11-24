@@ -6,12 +6,15 @@ description: How to read this server's error shapes (rate limits, empty results,
 
 Every error carries a trailing tag. Act on the tag — and never retry more than once.
 
+## Empty results — not an error
+
+A search that matches nothing returns `images: []` / `audio: []` (or `picks: []`)
+with a `note`, and no `error` key. The call succeeded; the query was just too
+narrow for the index. Read the `note`, widen the query once (fewer, more generic
+words, `license='all'`, drop `aspect_ratio`/`size` filters), and move on.
+
 ## `[INPUT_FIXABLE]` — change the arguments
 
-- **"No images matched"**: broaden the query (fewer, more generic words), set
-  `license='all'`, or drop `aspect_ratio`/`size`/`extension` filters. Openverse
-  indexes library/museum collections; corporate-speak queries miss ("synergy
-  office team" → try "team meeting").
 - **"Unknown license/aspect_ratio/size"**: the error lists valid candidates —
   pick from it (recognition beats recall).
 - **HTTP 400**: usually an invalid filter value; same fix.
@@ -25,7 +28,8 @@ retry-loop into a longer lockout.
 
 ## `[TRANSIENT: retry once]`
 
-Timeouts and network blips. One identical retry, then report.
+Timeouts, network blips, and any upstream 5xx (`HTTP 500`/`502`/`504`). The
+service is at fault, not the arguments — one identical retry, then report.
 
 ## Attribution discipline (not an error, a rule)
 
