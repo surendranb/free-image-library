@@ -85,6 +85,10 @@ def _get(path, params):
         raise OpenverseError("Openverse rejected OPENVERSE_API_KEY "
                              "[ENVIRONMENT_FIXABLE: unset it to use anonymous "
                              "access, or fix the key]")
+    if resp.status_code >= 500:
+        raise OpenverseError(f"Openverse returned HTTP {resp.status_code} from "
+                             "its own service — not an argument problem "
+                             "[TRANSIENT: retry once]")
     if resp.status_code >= 400:
         raise OpenverseError(f"Openverse returned HTTP {resp.status_code} "
                              "[INPUT_FIXABLE: check the arguments, e.g. an "
