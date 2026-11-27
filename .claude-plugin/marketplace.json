@@ -6,14 +6,15 @@
   },
   "metadata": {
     "description": "Free CC0 and openly-licensed image search for AI agents from Wikimedia Commons, Openverse, and cultural institutions with ready-to-paste attribution. Zero API keys.",
-    "version": "0.1.4"
+    "version": "0.1.5"
   },
   "plugins": [
     {
       "name": "free-image-library",
       "source": "./",
       "description": "Free CC0 and openly-licensed image search for AI agents from Wikimedia Commons, Openverse, and cultural institutions with ready-to-paste attribution. Zero API keys.",
-      "strict": false
+      "strict": false,
+      "version": "0.1.5"
     }
   ]
 }
