@@ -1,7 +1,7 @@
 {
   "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
   "name": "io.github.surendranb/free-image-library",
-  "description": "Free images for AI agents: millions of openly-licensed Creative Commons images and audio from Openverse (Flickr, Wikimedia, museums), every result with ready-to-paste attribution.",
+  "description": "Openly-licensed Creative Commons images and audio for AI agents, with ready-to-paste attribution.",
   "repository": {
     "url": "https://github.com/surendranb/free-image-library",
     "source": "github"
