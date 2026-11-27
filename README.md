@@ -1,3 +1,5 @@
+<!-- mcp-name: io.github.surendranb/free-image-library -->
+
 # Free Image Library — Free CC Images & Audio MCP 🖼️
 
 [![CI](https://github.com/surendranb/free-image-library/actions/workflows/package-checks.yml/badge.svg)](https://github.com/surendranb/free-image-library/actions)

@@ -1,5 +1,16 @@
 # Changelog
 
+## 0.1.5 — 2026-11-27
+
+Discovery, no API change.
+
+- **Registered in the official MCP registry.** The README now carries the
+  `mcp-name` marker PyPI ownership validation requires, and the release
+  workflow publishes `server.json` to the registry after PyPI, authenticating
+  with GitHub OIDC so no long-lived token can expire.
+- **Release gate reports npm failures.** A failed npm publish used to leave the
+  workflow green. It now fails.
+
 ## 0.1.4 — 2026-11-24
 
 Error classification fixes, no API change.
